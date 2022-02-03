@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'theIntranet'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_099EFDA5EBEE4ED69D771131DB7F7486 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C03F3D79577A42E785806FEFBF020763 }}
           package: .
