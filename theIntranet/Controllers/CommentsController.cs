@@ -67,7 +67,7 @@ namespace theIntranet.Controllers
                     var encodedTag = HttpUtility.HtmlEncode(tag);
                     encodedContent = encodedContent.Replace(encodedTag, tag);
                 }
-                
+
                 comment.Text = encodedContent;
 
                 _context.Add(comment);

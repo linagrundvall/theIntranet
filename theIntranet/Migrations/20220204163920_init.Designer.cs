@@ -11,7 +11,7 @@ using theIntranet.Data;
 namespace theIntranet.Migrations
 {
     [DbContext(typeof(SqlContext))]
-    [Migration("20220203112956_init")]
+    [Migration("20220204163920_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
