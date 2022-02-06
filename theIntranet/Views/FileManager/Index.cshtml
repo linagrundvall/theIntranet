@@ -1,0 +1,37 @@
+﻿@model theIntranet.Models.IndexViewModel
+
+<form asp-action="Upload" enctype="multipart/form-data" class="mb-5">
+    <div asp-validation-summary="ModelOnly" class="text-danger my-2"></div>
+
+    <div class="mb-3">
+        <label asp-for="FileItem.File" class="form-label"></label>
+        <input asp-for="FileItem.File" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <input type="submit" value="Upload" class="btn btn-success" />
+    </div>
+</form>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">File Name</th>
+      <th scope="col">Created</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach(var item in Model.Items)
+        {
+            <tr>
+                <th scope="row">@item.Name</th>
+                @*Borde kunna komma åt samma som i azure, typ storlek osv*@
+                <td>@item.Properties.CreatedOn</td>
+                <td>
+                    @Html.ActionLink("Download", "Download", new { name = item.Name}) |
+                    @Html.ActionLink("Delete", "Delete", new { name = item.Name})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
