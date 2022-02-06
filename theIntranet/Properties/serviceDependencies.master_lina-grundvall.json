@@ -1,15 +1,12 @@
 {
   "dependencies": {
     "identityapp.aad1": {
-      "secretStore": "LocalSecretsFile",
+      "secretStore": "AzureAppSettings",
       "type": "identityapp.aad.callsgraph",
       "connectionId": "AzureAD:ClientSecret"
     },
-    "secrets1": {
-      "type": "secrets.user"
-    },
     "mssql1": {
-      "secretStore": "LocalSecretsFile",
+      "secretStore": "AzureAppSettings",
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/linas-sql-server/databases/azure-sql-db",
       "type": "mssql.azure",
       "connectionId": "ConnectionStrings:SqlConnection"
