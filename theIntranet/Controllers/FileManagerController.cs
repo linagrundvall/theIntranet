@@ -52,21 +52,20 @@ namespace theIntranet.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //public async Task<IActionResult> Download(string name)
-        //{
-        //    string localPath = Path.Combine($@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\files", name);
-        //    //Borde skapa både upload och download i files-mappen
-        //    _blobClient = _containerClient.GetBlobClient(name);
-        //    await _blobClient.DownloadToAsync(localPath);
+        public async Task<IActionResult> Download(string name)
+        {
+            string localPath = Path.Combine($@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\files\download", name);
+            _blobClient = _containerClient.GetBlobClient(name);
+            await _blobClient.DownloadToAsync(localPath);
 
-        //    return RedirectToAction(nameof(Index));
-        //}
+            return RedirectToAction(nameof(Index));
+        }
 
-        //public async Task<IActionResult> Delete(string name)
-        //{
-        //    await _containerClient.DeleteBlobIfExistsAsync(name);
+        public async Task<IActionResult> Delete(string name)
+        {
+            await _containerClient.DeleteBlobIfExistsAsync(name);
 
-        //    return RedirectToAction(nameof(Index));
-        //}
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
