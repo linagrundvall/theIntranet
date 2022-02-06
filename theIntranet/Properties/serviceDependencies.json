@@ -4,12 +4,13 @@
       "type": "identityapp.aad",
       "connectionId": "AzureAD:ClientSecret"
     },
-    "secrets1": {
-      "type": "secrets"
-    },
     "mssql1": {
       "type": "mssql",
       "connectionId": "ConnectionStrings:SqlConnection"
+    },
+    "secrets1": {
+      "type": "secrets",
+      "connectionId": "VaultUri"
     }
   }
 }
