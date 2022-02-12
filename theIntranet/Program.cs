@@ -7,6 +7,7 @@ using Microsoft.Identity.Web.UI;
 using theIntranet.Data;
 using Microsoft.AspNetCore.Authentication;
 using Azure.Identity;
+using Microsoft.Extensions.Azure;
 
 var builder = WebApplication.CreateBuilder(args);
 var initialScopes = builder.Configuration["DownstreamApi:Scopes"]?.Split(' ') ?? builder.Configuration["MicrosoftGraph:Scopes"]?.Split(' ');
@@ -34,12 +35,12 @@ builder.Services.AddDbContext<SqlContext>(options => options.UseSqlServer(builde
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
+//if (!app.Environment.IsDevelopment())
+//{
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
-}
+//}
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();

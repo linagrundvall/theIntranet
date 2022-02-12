@@ -13,6 +13,12 @@
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/linas-sql-server/databases/azure-sql-db",
       "type": "mssql.azure",
       "connectionId": "ConnectionStrings:SqlConnection"
+    },
+    "storage1": {
+      "secretStore": "LocalSecretsFile",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/win20linasaccount",
+      "type": "storage.azure",
+      "connectionId": "ConnectionStrings:StorageAccount"
     }
   }
 }
