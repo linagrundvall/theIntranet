@@ -51,7 +51,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'lina-grundvall'
+          app-name: 'linas-grundvall'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3A2BDA06174A4116BF7E0E02D2747DD8 }}
           package: .

@@ -10,11 +10,13 @@ namespace theIntranet.Controllers
         private BlobServiceClient _serviceClient;
         private BlobContainerClient _containerClient;
         private BlobClient _blobClient;
+        //private List<string> _fileTypesAllowed;
 
         public FileManagerController(IConfiguration configuration)
         {
             _serviceClient = new BlobServiceClient(configuration.GetConnectionString("StorageAccount"));
             _containerClient = GetBlobContainerClient("files");
+            //_fileTypesAllowed = new List<string>() { ".pdf", ".docx", ".pptx", ".xlsx", ".png", ".jpg" };
         }
 
         private BlobContainerClient GetBlobContainerClient(string name)
@@ -43,10 +45,22 @@ namespace theIntranet.Controllers
         {
             using (var ms = new MemoryStream())
             {
-                model.FileItem.File.CopyTo(ms);
-                _blobClient = _containerClient.GetBlobClient(model.FileItem.File.FileName);
-                ms.Position = 0;
-                await _blobClient.UploadAsync(ms, true);
+                
+                
+                    string extension = Path.GetExtension(model.FileItem.File.FileName).ToLower();
+
+                    if (extension == ".pdf" || extension == ".docx" || extension == ".pptx" || extension == ".xlsx" || extension == ".png" || extension == ".jpg")
+                    {
+                        model.FileItem.File.CopyTo(ms);
+                        _blobClient = _containerClient.GetBlobClient(model.FileItem.File.FileName);
+                        ms.Position = 0;
+                        await _blobClient.UploadAsync(ms, true);
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Filetype is wrong.");
+                        //Funkar inte. Ta bort?
+                    }
             }
 
             return RedirectToAction(nameof(Index));

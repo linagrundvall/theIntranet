@@ -16,6 +16,12 @@
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.KeyVault/vaults/theIntranetvault",
       "type": "secrets.keyVault",
       "connectionId": "VaultUri"
+    },
+    "storage1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/win20linasaccount",
+      "type": "storage.azure",
+      "connectionId": "ConnectionStrings:StorageAccount"
     }
   }
 }
