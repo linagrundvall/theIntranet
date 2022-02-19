@@ -1,5 +1,9 @@
 ﻿@model theIntranet.Models.IndexViewModel
 
+@{
+    ViewData["Title"] = "Files";
+}
+
 <form asp-action="Upload" enctype="multipart/form-data" class="mb-5">
     <div asp-validation-summary="ModelOnly" class="text-danger my-2"></div>
 

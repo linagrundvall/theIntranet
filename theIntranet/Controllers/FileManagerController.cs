@@ -10,13 +10,11 @@ namespace theIntranet.Controllers
         private BlobServiceClient _serviceClient;
         private BlobContainerClient _containerClient;
         private BlobClient _blobClient;
-        //private List<string> _fileTypesAllowed;
 
         public FileManagerController(IConfiguration configuration)
         {
             _serviceClient = new BlobServiceClient(configuration.GetConnectionString("StorageAccount"));
             _containerClient = GetBlobContainerClient("files");
-            //_fileTypesAllowed = new List<string>() { ".pdf", ".docx", ".pptx", ".xlsx", ".png", ".jpg" };
         }
 
         private BlobContainerClient GetBlobContainerClient(string name)
