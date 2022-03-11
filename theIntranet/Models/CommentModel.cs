@@ -2,7 +2,7 @@
 
 namespace theIntranet.Models
 {
-    public class Comment
+    public class CommentModel
     {
         [Key]
         public int Id { get; set; }

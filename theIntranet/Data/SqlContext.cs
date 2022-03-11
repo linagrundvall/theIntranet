@@ -15,6 +15,6 @@ namespace theIntranet.Data
 
         }
 
-        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<CommentModel> Comments { get; set; }
     }
 }

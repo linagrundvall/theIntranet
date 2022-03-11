@@ -55,7 +55,7 @@ namespace theIntranet.Controllers
         // POST: Comments/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Comment comment)
+        public async Task<IActionResult> Create(CommentModel comment)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace theIntranet.Controllers
         // POST: Comments/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Text")] Comment comment)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Text")] CommentModel comment)
         {
             if (id != comment.Id)
             {
